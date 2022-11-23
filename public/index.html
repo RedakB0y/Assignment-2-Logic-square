@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="../src/index.js"></script>
+    <title>Cafe</title>
+</head>
+
+<body>
+    <div id="main">
+        <h1>California Cafe Directory</h1>
+        <input type="text" id="input" oninput="findCaliforniaCafes(this.value)"
+            placeholder="Search your favourite cafes!">
+    </div>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>S No</th>
+                <th>Cafe Name</th>
+                <th>Address</th>
+                <th>Postal Code</th>
+                <th>Lat</th>
+                <th>Long</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+
+        </tbody>
+
+    </table>
+
+
+
+</body>
+
+</html>
