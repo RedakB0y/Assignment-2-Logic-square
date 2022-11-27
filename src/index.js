@@ -1,5 +1,15 @@
 let total = [];
 let temp;
+
+function toTitleCase(str) {
+    return str.replace(
+        /\w\S*/g,
+        function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
+};
+
 async function fetch_api(e) {
     let cafesdata;
     let placedata;
@@ -10,7 +20,7 @@ async function fetch_api(e) {
     placedata = await res1.json();
 
     cafesdata.cafes.forEach(element => {
-        if (element.name.includes(e)) {
+        if (element.name.includes(e) || element.name.includes(toTitleCase(e))) {
             placedata.places.filter((elm) => {
                 if (element.location_id === elm.id) {
                     temp = {
@@ -30,17 +40,8 @@ async function fetch_api(e) {
 
 fetch_api("");
 
-
 function findCaliforniaCafes(searchdata) {
-    function toTitleCase(str) {
-        return str.replace(
-            /\w\S*/g,
-            function (txt) {
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }
-        );
-    };
-    fetch_api(toTitleCase(searchdata));
+    fetch_api(searchdata);
 }
 
 function ShowTable(elm) {
